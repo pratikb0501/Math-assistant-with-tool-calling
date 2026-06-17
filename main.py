@@ -16,6 +16,7 @@ def health():
 @app.post("/calculate")
 def calculate(request:RequestBody):
     messages = [
+        {'role': 'system', 'content': 'You are a math assistant. Give short, direct answers. No LaTeX formatting.'},
         {'role': 'user', 'content': request.payload}
     ]
     response = chat(
